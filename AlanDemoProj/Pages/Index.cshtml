@@ -1,0 +1,39 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Hello Page";
+}
+
+<div class="row">
+    <div class="col-md-4"></div>
+
+    <div class="border p-3 mt-4 col-md-4">
+        <form method="post" asp-page-handler="OnPostShow">
+            <div class="row m-4">
+                <label asp-for="@Model.Name"></label>
+                <input asp-for="@Model.Name" class="form-control" />
+            </div>
+            <div class="row m-4">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+
+        @if (Model.Name != null)
+        {
+            <div class="row m-4 text-center">
+                <label class="form-control btn-info">Hello @Model.Name </label>
+            </div>
+
+            <br />
+            <form method="post" asp-page-handler="OnPostClear">
+                <div class="row m-4">
+                    <button type="submit" class="btn btn-danger">Clear</button>
+                </div>
+            </form>
+        }
+    </div>
+
+    <div class="col-md-4"></div>
+</div>
+
+
